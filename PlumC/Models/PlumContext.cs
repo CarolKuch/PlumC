@@ -13,5 +13,8 @@ namespace PlumC.Models
         }
 
         public IDbSet<Doctor> Doctors { get; set; }
+        public IDbSet<Patient> Patients { get; set; }
+        public IDbSet<Appointment> Appointments { get; set; }
+        public IDbSet<Specialization> Specializations { get; set; }
     }
 }

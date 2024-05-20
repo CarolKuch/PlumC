@@ -11,112 +11,107 @@ using PlumC.Models;
 
 namespace PlumC.Controllers
 {
-    public class DoctorController : Controller
+    public class PatientController : Controller
     {
         private PlumContext _db = new PlumContext();
 
-        // GET: Doctors
+        // GET: Patient
         public async Task<ActionResult> Index()
         {
-            var doctors = _db.Doctors.Include(d => d.Specialization);
-            return View(await doctors.ToListAsync());
+            return View(await _db.Patients.ToListAsync());
         }
 
-        // GET: Doctors/Details/5
+        // GET: Patient/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Doctor doctor = await FindDoctorByIdAsync(id);
-            if (doctor == null)
+            Patient patient = await FindPatientByIdAsync(id);
+            if (patient == null)
             {
                 return HttpNotFound();
             }
-            return View(doctor);
+            return View(patient);
         }
 
-        // GET: Doctors/Create
+        // GET: Patient/Create
         public ActionResult Create()
         {
-            ViewBag.SpecializationId = new SelectList(_db.Specializations, "Id", "Name");
             return View();
         }
 
-        // POST: Doctors/Create
+        // POST: Patient/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Surname,SpecializationId")] Doctor doctor)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Surname")] Patient patient)
         {
             if (ModelState.IsValid)
             {
-                _db.Doctors.Add(doctor);
+                _db.Patients.Add(patient);
                 await _db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SpecializationId = new SelectList(_db.Specializations, "Id", "Name", doctor.SpecializationId);
-            return View(doctor);
+            return View(patient);
         }
 
-        // GET: Doctors/Edit/5
+        // GET: Patient/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Doctor doctor = await FindDoctorByIdAsync(id);
-            if (doctor == null)
+            Patient patient = await FindPatientByIdAsync(id);
+            if (patient == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.SpecializationId = new SelectList(_db.Specializations, "Id", "Name", doctor.SpecializationId);
-            return View(doctor);
+            return View(patient);
         }
 
-        // POST: Doctors/Edit/5
+        // POST: Patient/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Surname,SpecializationId")] Doctor doctor)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Surname")] Patient patient)
         {
             if (ModelState.IsValid)
             {
-                _db.Entry(doctor).State = EntityState.Modified;
+                _db.Entry(patient).State = EntityState.Modified;
                 await _db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.SpecializationId = new SelectList(_db.Specializations, "Id", "Name", doctor.SpecializationId);
-            return View(doctor);
+            return View(patient);
         }
 
-        // GET: Doctors/Delete/5
+        // GET: Patient/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Doctor doctor = await FindDoctorByIdAsync(id);
-            if (doctor == null)
+            Patient patient = await FindPatientByIdAsync(id);
+            if (patient == null)
             {
                 return HttpNotFound();
             }
-            return View(doctor);
+            return View(patient);
         }
 
-        // POST: Doctors/Delete/5
+        // POST: Patient/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Doctor doctor = await FindDoctorByIdAsync(id);
-            _db.Doctors.Remove(doctor);
+            Patient patient = await FindPatientByIdAsync(id);
+            _db.Patients.Remove(patient);
             await _db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
@@ -129,9 +124,10 @@ namespace PlumC.Controllers
             }
             base.Dispose(disposing);
         }
-        private async Task<Doctor> FindDoctorByIdAsync(int? id)
+
+        private async Task<Patient> FindPatientByIdAsync(int? id)
         {
-            return await _db.Doctors.Where(d => d.Id == id).SingleOrDefaultAsync();
+            return await _db.Patients.Where(d => d.Id == id).SingleOrDefaultAsync();
         }
     }
 }

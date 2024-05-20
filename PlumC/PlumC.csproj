@@ -14,7 +14,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlumC</RootNamespace>
-    <AssemblyName>PlumC</AssemblyName>
+    <AssemblyName>o</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -234,8 +234,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\SpecializationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -243,9 +246,32 @@
     <Compile Include="Migrations\202403270931215_InitialCreate.designer.cs">
       <DependentUpon>202403270931215_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202403271044191_AddedPatientAndAppointment.cs" />
+    <Compile Include="Migrations\202403271044191_AddedPatientAndAppointment.designer.cs">
+      <DependentUpon>202403271044191_AddedPatientAndAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403271152365_DateAndTimeSetAsSeparatePropertiesInAppointment.cs" />
+    <Compile Include="Migrations\202403271152365_DateAndTimeSetAsSeparatePropertiesInAppointment.designer.cs">
+      <DependentUpon>202403271152365_DateAndTimeSetAsSeparatePropertiesInAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403271215542_PatientIdInAppointmentMadeNullable.cs" />
+    <Compile Include="Migrations\202403271215542_PatientIdInAppointmentMadeNullable.designer.cs">
+      <DependentUpon>202403271215542_PatientIdInAppointmentMadeNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403291328440_SpecializationAdded.cs" />
+    <Compile Include="Migrations\202403291328440_SpecializationAdded.designer.cs">
+      <DependentUpon>202403291328440_SpecializationAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202404100855513_AddedMinutesForEachPatient.cs" />
+    <Compile Include="Migrations\202404100855513_AddedMinutesForEachPatient.designer.cs">
+      <DependentUpon>202404100855513_AddedMinutesForEachPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\PlumContext.cs" />
+    <Compile Include="Models\Specialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -299,6 +325,21 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Patient\Create.cshtml" />
+    <Content Include="Views\Patient\Delete.cshtml" />
+    <Content Include="Views\Patient\Details.cshtml" />
+    <Content Include="Views\Patient\Edit.cshtml" />
+    <Content Include="Views\Patient\Index.cshtml" />
+    <Content Include="Views\Appointment\Create.cshtml" />
+    <Content Include="Views\Appointment\Delete.cshtml" />
+    <Content Include="Views\Appointment\Details.cshtml" />
+    <Content Include="Views\Appointment\Edit.cshtml" />
+    <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Specialization\Create.cshtml" />
+    <Content Include="Views\Specialization\Delete.cshtml" />
+    <Content Include="Views\Specialization\Details.cshtml" />
+    <Content Include="Views\Specialization\Edit.cshtml" />
+    <Content Include="Views\Specialization\Index.cshtml" />
     <Content Include="Views\Doctor\Create.cshtml" />
     <Content Include="Views\Doctor\Delete.cshtml" />
     <Content Include="Views\Doctor\Details.cshtml" />
@@ -339,10 +380,28 @@
     <EmbeddedResource Include="Migrations\202403270931215_InitialCreate.resx">
       <DependentUpon>202403270931215_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403271044191_AddedPatientAndAppointment.resx">
+      <DependentUpon>202403271044191_AddedPatientAndAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403271152365_DateAndTimeSetAsSeparatePropertiesInAppointment.resx">
+      <DependentUpon>202403271152365_DateAndTimeSetAsSeparatePropertiesInAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403271215542_PatientIdInAppointmentMadeNullable.resx">
+      <DependentUpon>202403271215542_PatientIdInAppointmentMadeNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403291328440_SpecializationAdded.resx">
+      <DependentUpon>202403291328440_SpecializationAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202404100855513_AddedMinutesForEachPatient.resx">
+      <DependentUpon>202404100855513_AddedMinutesForEachPatient.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
@@ -364,6 +423,9 @@
           <CustomServerUrl>
           </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="SelfHostServer">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:53620/" workingDir="" />
+          </servers>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
