@@ -7,7 +7,9 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create", "Patient")'">
+        Add patient
+    </button>
 </p>
 <table class="table">
     <tr>
