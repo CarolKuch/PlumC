@@ -266,9 +266,15 @@
     <Compile Include="Migrations\202404100855513_AddedMinutesForEachPatient.designer.cs">
       <DependentUpon>202404100855513_AddedMinutesForEachPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202405201526095_AddedStartAndEndDateToAppointment.cs" />
+    <Compile Include="Migrations\202405201526095_AddedStartAndEndDateToAppointment.designer.cs">
+      <DependentUpon>202405201526095_AddedStartAndEndDateToAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\DoctorOfficeAvailability.cs" />
+    <Compile Include="Models\Office.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\PlumContext.cs" />
     <Compile Include="Models\Specialization.cs" />
@@ -393,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202404100855513_AddedMinutesForEachPatient.resx">
       <DependentUpon>202404100855513_AddedMinutesForEachPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405201526095_AddedStartAndEndDateToAppointment.resx">
+      <DependentUpon>202405201526095_AddedStartAndEndDateToAppointment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

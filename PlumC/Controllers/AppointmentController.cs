@@ -51,11 +51,13 @@ namespace PlumC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,DoctorId,Date,Time,PatientId ")] Appointment appointment)
+        public async Task<ActionResult> Create([Bind(Include = "Id,DoctorId,Date,TimeStart, MinutesForEachPatient, PatientId ")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
-                appointment.Time = appointment.Time.ToUniversalTime();
+                appointment.TimeStart = appointment.TimeStart.ToUniversalTime();
+                appointment.MinutesForEachPatient = appointment.MinutesForEachPatient;
+                appointment.TimeEnd = appointment.TimeStart.AddMinutes(appointment.MinutesForEachPatient);
                 appointment.IsAvailable = appointment.PatientId.HasValue ? false : true;
                 _db.Appointments.Add(appointment);
                 await _db.SaveChangesAsync();

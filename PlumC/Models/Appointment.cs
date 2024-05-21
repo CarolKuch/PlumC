@@ -16,7 +16,9 @@ namespace PlumC.Models
         public DateTime Date { get; set; }
 
         [DataType(DataType.Time)]
-        public DateTime Time { get; set; }
+        public DateTime TimeStart { get; set; }
+        [DataType(DataType.Time)]
+        public DateTime TimeEnd { get; set; }
         public bool IsAvailable { get; set; }
         public Patient Patient { get; set; }    
         public int? PatientId { get; set; }
