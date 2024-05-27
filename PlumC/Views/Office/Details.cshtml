@@ -1,0 +1,58 @@
+﻿@model PlumC.Models.Office
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Office</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Floor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Floor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinutesForPatient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinutesForPatient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstConsultationFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstConsultationFee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FollowUpConsultationFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FollowUpConsultationFee)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

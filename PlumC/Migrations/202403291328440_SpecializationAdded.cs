@@ -8,7 +8,7 @@
         public override void Up()
         {
             CreateTable(
-                "dbo.Specializations",
+                "_dbo.Specializations",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -16,19 +16,19 @@
                     })
                 .PrimaryKey(t => t.Id);
             
-            AddColumn("dbo.Doctors", "SpecializationId", c => c.Int(nullable: false));
-            CreateIndex("dbo.Doctors", "SpecializationId");
-            AddForeignKey("dbo.Doctors", "SpecializationId", "dbo.Specializations", "Id", cascadeDelete: true);
-            DropColumn("dbo.Doctors", "Major");
+            AddColumn("_dbo.Doctors", "SpecializationId", c => c.Int(nullable: false));
+            CreateIndex("_dbo.Doctors", "SpecializationId");
+            AddForeignKey("_dbo.Doctors", "SpecializationId", "_dbo.Specializations", "Id", cascadeDelete: true);
+            DropColumn("_dbo.Doctors", "Major");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.Doctors", "Major", c => c.String());
-            DropForeignKey("dbo.Doctors", "SpecializationId", "dbo.Specializations");
-            DropIndex("dbo.Doctors", new[] { "SpecializationId" });
-            DropColumn("dbo.Doctors", "SpecializationId");
-            DropTable("dbo.Specializations");
+            AddColumn("_dbo.Doctors", "Major", c => c.String());
+            DropForeignKey("_dbo.Doctors", "SpecializationId", "_dbo.Specializations");
+            DropIndex("_dbo.Doctors", new[] { "SpecializationId" });
+            DropColumn("_dbo.Doctors", "SpecializationId");
+            DropTable("_dbo.Specializations");
         }
     }
 }

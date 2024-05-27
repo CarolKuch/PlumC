@@ -7,12 +7,12 @@
     {
         public override void Up()
         {
-            AddColumn("dbo.Appointments", "MinutesForEachPatient", c => c.Int(nullable: false));
+            AddColumn("_dbo.Appointments", "MinutesForEachPatient", c => c.Int(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Appointments", "MinutesForEachPatient");
+            DropColumn("_dbo.Appointments", "MinutesForEachPatient");
         }
     }
 }

@@ -13,5 +13,6 @@ namespace PlumC.Models
         public int SpecializationId { get; set; }
         public Specialization Specialization { get; set; }
         public IEnumerable<Appointment> Appointments { get; set; }
+        public IEnumerable<Office> Offices { get; set; }
     }
 }

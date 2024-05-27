@@ -7,16 +7,16 @@
     {
         public override void Up()
         {
-            AddColumn("dbo.Appointments", "TimeStart", c => c.DateTime(nullable: false));
-            AddColumn("dbo.Appointments", "TimeEnd", c => c.DateTime(nullable: false));
-            DropColumn("dbo.Appointments", "Time");
+            AddColumn("_dbo.Appointments", "TimeStart", c => c.DateTime(nullable: false));
+            AddColumn("_dbo.Appointments", "TimeEnd", c => c.DateTime(nullable: false));
+            DropColumn("_dbo.Appointments", "Time");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.Appointments", "Time", c => c.DateTime(nullable: false));
-            DropColumn("dbo.Appointments", "TimeEnd");
-            DropColumn("dbo.Appointments", "TimeStart");
+            AddColumn("_dbo.Appointments", "Time", c => c.DateTime(nullable: false));
+            DropColumn("_dbo.Appointments", "TimeEnd");
+            DropColumn("_dbo.Appointments", "TimeStart");
         }
     }
 }

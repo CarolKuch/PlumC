@@ -8,7 +8,7 @@
         public override void Up()
         {
             CreateTable(
-                "dbo.Appointments",
+                "_dbo.Appointments",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -18,13 +18,13 @@
                         PatientId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Doctors", t => t.DoctorId, cascadeDelete: true)
-                .ForeignKey("dbo.Patients", t => t.PatientId, cascadeDelete: true)
+                .ForeignKey("_dbo.Doctors", t => t.DoctorId, cascadeDelete: true)
+                .ForeignKey("_dbo.Patients", t => t.PatientId, cascadeDelete: true)
                 .Index(t => t.DoctorId)
                 .Index(t => t.PatientId);
             
             CreateTable(
-                "dbo.Patients",
+                "_dbo.Patients",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -37,12 +37,12 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.Appointments", "PatientId", "dbo.Patients");
-            DropForeignKey("dbo.Appointments", "DoctorId", "dbo.Doctors");
-            DropIndex("dbo.Appointments", new[] { "PatientId" });
-            DropIndex("dbo.Appointments", new[] { "DoctorId" });
-            DropTable("dbo.Patients");
-            DropTable("dbo.Appointments");
+            DropForeignKey("_dbo.Appointments", "PatientId", "_dbo.Patients");
+            DropForeignKey("_dbo.Appointments", "DoctorId", "_dbo.Doctors");
+            DropIndex("_dbo.Appointments", new[] { "PatientId" });
+            DropIndex("_dbo.Appointments", new[] { "DoctorId" });
+            DropTable("_dbo.Patients");
+            DropTable("_dbo.Appointments");
         }
     }
 }
