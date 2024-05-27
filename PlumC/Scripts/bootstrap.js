@@ -10,7 +10,7 @@
 })(this, (function (Popper) { 'use strict';
 
   function _interopNamespace(e) {
-    if (e && e.__esModule) return e;
+    if (e && e._esModule) return e;
     const n = Object.create(null, { [Symbol.toStringTag]: { value: 'Module' } });
     if (e) {
       for (const k in e) {
@@ -27,7 +27,7 @@
     return Object.freeze(n);
   }
 
-  const Popper__namespace = /*#__PURE__*/_interopNamespace(Popper);
+  const Popper_namespace = /*#_PURE_*/_interopNamespace(Popper);
 
   /**
    * --------------------------------------------------------------------------
@@ -2191,7 +2191,7 @@
     }
 
     _createPopper() {
-      if (typeof Popper__namespace === 'undefined') {
+      if (typeof Popper_namespace === 'undefined') {
         throw new TypeError('Bootstrap\'s dropdowns require Popper (https://popper.js.org)');
       }
 
@@ -2207,7 +2207,7 @@
 
       const popperConfig = this._getPopperConfig();
 
-      this._popper = Popper__namespace.createPopper(referenceElement, this._menu, popperConfig);
+      this._popper = Popper_namespace.createPopper(referenceElement, this._menu, popperConfig);
     }
 
     _isShown() {
@@ -3790,7 +3790,7 @@
 
   class Tooltip extends BaseComponent {
     constructor(element, config) {
-      if (typeof Popper__namespace === 'undefined') {
+      if (typeof Popper_namespace === 'undefined') {
         throw new TypeError('Bootstrap\'s tooltips require Popper (https://popper.js.org)');
       }
 
@@ -4062,7 +4062,7 @@
     _createPopper(tip) {
       const placement = typeof this._config.placement === 'function' ? this._config.placement.call(this, tip, this._element) : this._config.placement;
       const attachment = AttachmentMap[placement.toUpperCase()];
-      return Popper__namespace.createPopper(this._element, tip, this._getPopperConfig(attachment));
+      return Popper_namespace.createPopper(this._element, tip, this._getPopperConfig(attachment));
     }
 
     _getOffset() {

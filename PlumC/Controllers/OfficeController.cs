@@ -14,12 +14,12 @@ namespace PlumC.Controllers
 {
     public class OfficeController : Controller
     {
-        private PlumContext __db = new PlumContext();
+        private PlumContext _db = new PlumContext();
 
         // GET: Office
         public async Task<ActionResult> Index()
         {
-            return View(await __db.Offices.ToListAsync());
+            return View(await _db.Offices.ToListAsync());
         }
 
         // GET: Office/Details/5
@@ -52,8 +52,8 @@ namespace PlumC.Controllers
         {
             if (ModelState.IsValid)
             {
-                __db.Offices.Add(office);
-                await __db.SaveChangesAsync();
+                _db.Offices.Add(office);
+                await _db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
@@ -84,8 +84,8 @@ namespace PlumC.Controllers
         {
             if (ModelState.IsValid)
             {
-                __db.Entry(office).State = EntityState.Modified;
-                await __db.SaveChangesAsync();
+                _db.Entry(office).State = EntityState.Modified;
+                await _db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(office);
@@ -112,8 +112,8 @@ namespace PlumC.Controllers
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Office office = await FindOfficeByIdAsync(id);
-            __db.Offices.Remove(office);
-            await __db.SaveChangesAsync();
+            _db.Offices.Remove(office);
+            await _db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
@@ -121,13 +121,13 @@ namespace PlumC.Controllers
         {
             if (disposing)
             {
-                __db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }
         private async Task<Office> FindOfficeByIdAsync(int? id)
         {
-            return await __db.Offices.Where(d => d.Id == id).SingleOrDefaultAsync();
+            return await _db.Offices.Where(d => d.Id == id).SingleOrDefaultAsync();
         }
     }
 }

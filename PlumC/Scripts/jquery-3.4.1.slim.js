@@ -275,7 +275,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 
 				// Prevent Object.prototype pollution
 				// Prevent never-ending loop
-				if ( name === "__proto__" || target === copy ) {
+				if ( name === "_proto_" || target === copy ) {
 					continue;
 				}
 
@@ -7356,7 +7356,7 @@ jQuery.fn.extend( {
 				if ( className ) {
 
 					// Store className if set
-					dataPriv.set( this, "__className__", className );
+					dataPriv.set( this, "_className_", className );
 				}
 
 				// If the element has a class name or if we're passed `false`,
@@ -7367,7 +7367,7 @@ jQuery.fn.extend( {
 					this.setAttribute( "class",
 						className || value === false ?
 						"" :
-						dataPriv.get( this, "__className__" ) || ""
+						dataPriv.get( this, "_className_" ) || ""
 					);
 				}
 			}

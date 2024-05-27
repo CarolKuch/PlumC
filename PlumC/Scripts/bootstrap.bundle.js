@@ -1980,10 +1980,10 @@
   var viewport = 'viewport';
   var popper = 'popper';
   var reference = 'reference';
-  var variationPlacements = /*#__PURE__*/basePlacements.reduce(function (acc, placement) {
+  var variationPlacements = /*#_PURE_*/basePlacements.reduce(function (acc, placement) {
     return acc.concat([placement + "-" + start, placement + "-" + end]);
   }, []);
-  var placements = /*#__PURE__*/[].concat(basePlacements, [auto]).reduce(function (acc, placement) {
+  var placements = /*#_PURE_*/[].concat(basePlacements, [auto]).reduce(function (acc, placement) {
     return acc.concat([placement, placement + "-" + start, placement + "-" + end]);
   }, []); // modifiers that need to read the DOM
 
@@ -3760,20 +3760,20 @@
       return instance;
     };
   }
-  var createPopper$2 = /*#__PURE__*/popperGenerator(); // eslint-disable-next-line import/no-unused-modules
+  var createPopper$2 = /*#_PURE_*/popperGenerator(); // eslint-disable-next-line import/no-unused-modules
 
   var defaultModifiers$1 = [eventListeners, popperOffsets$1, computeStyles$1, applyStyles$1];
-  var createPopper$1 = /*#__PURE__*/popperGenerator({
+  var createPopper$1 = /*#_PURE_*/popperGenerator({
     defaultModifiers: defaultModifiers$1
   }); // eslint-disable-next-line import/no-unused-modules
 
   var defaultModifiers = [eventListeners, popperOffsets$1, computeStyles$1, applyStyles$1, offset$1, flip$1, preventOverflow$1, arrow$1, hide$1];
-  var createPopper = /*#__PURE__*/popperGenerator({
+  var createPopper = /*#_PURE_*/popperGenerator({
     defaultModifiers: defaultModifiers
   }); // eslint-disable-next-line import/no-unused-modules
 
-  const Popper = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-    __proto__: null,
+  const Popper = /*#_PURE_*/Object.freeze(/*#_PURE_*/Object.defineProperty({
+    _proto_: null,
     popperGenerator,
     detectOverflow,
     createPopperBase: createPopper$2,

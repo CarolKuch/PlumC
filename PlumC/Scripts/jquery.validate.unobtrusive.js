@@ -98,7 +98,7 @@
 
     function onReset(event) {  // 'this' is the form element
         var $form = $(this),
-            key = '__jquery_unobtrusive_validation_form_reset';
+            key = '_jquery_unobtrusive_validation_form_reset';
         if ($form.data(key)) {
             return;
         }
@@ -215,7 +215,7 @@
                 }
             });
 
-            $.extend(rules, { "__dummy__": true });
+            $.extend(rules, { "_dummy_": true });
 
             if (!skipAttach) {
                 valInfo.attachValidation();
@@ -333,7 +333,7 @@
         });
     };
 
-    $jQval.addMethod("__dummy__", function (value, element, params) {
+    $jQval.addMethod("_dummy_", function (value, element, params) {
         return true;
     });
 
