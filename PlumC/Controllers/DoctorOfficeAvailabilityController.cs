@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PlumC.Models;
+using PlumC.Enums;
 
 namespace PlumC.Controllers
 {
@@ -42,6 +43,7 @@ namespace PlumC.Controllers
         {
             ViewBag.DoctorId = new SelectList(_db.Doctors, "Id", "Name");
             ViewBag.OfficeId = new SelectList(_db.Offices, "Id", "Id");
+            
             return View();
         }
 

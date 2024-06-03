@@ -7,13 +7,13 @@ namespace PlumC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddedStartAndEndDateToAppointment : IMigrationMetadata
+    public sealed partial class WeekDayEnumAdded : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedStartAndEndDateToAppointment));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(WeekDayEnumAdded));
         
         string IMigrationMetadata.Id
         {
-            get { return "202405201526095_AddedStartAndEndDateToAppointment"; }
+            get { return "202406031310351_WeekDayEnumAdded"; }
         }
         
         string IMigrationMetadata.Source

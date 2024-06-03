@@ -241,44 +241,18 @@
     <Compile Include="Controllers\OfficeController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\SpecializationController.cs" />
+    <Compile Include="Enums\WeekDay.cs" />
+    <Compile Include="Extensions\EnumToDropdownList.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202403270931215_InitialCreate.cs" />
-    <Compile Include="Migrations\202403270931215_InitialCreate.designer.cs">
-      <DependentUpon>202403270931215_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202406021141290_InitialCreate.cs" />
+    <Compile Include="Migrations\202406021141290_InitialCreate.designer.cs">
+      <DependentUpon>202406021141290_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202403271044191_AddedPatientAndAppointment.cs" />
-    <Compile Include="Migrations\202403271044191_AddedPatientAndAppointment.designer.cs">
-      <DependentUpon>202403271044191_AddedPatientAndAppointment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202403271152365_DateAndTimeSetAsSeparatePropertiesInAppointment.cs" />
-    <Compile Include="Migrations\202403271152365_DateAndTimeSetAsSeparatePropertiesInAppointment.designer.cs">
-      <DependentUpon>202403271152365_DateAndTimeSetAsSeparatePropertiesInAppointment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202403271215542_PatientIdInAppointmentMadeNullable.cs" />
-    <Compile Include="Migrations\202403271215542_PatientIdInAppointmentMadeNullable.designer.cs">
-      <DependentUpon>202403271215542_PatientIdInAppointmentMadeNullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202403291328440_SpecializationAdded.cs" />
-    <Compile Include="Migrations\202403291328440_SpecializationAdded.designer.cs">
-      <DependentUpon>202403291328440_SpecializationAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202404100855513_AddedMinutesForEachPatient.cs" />
-    <Compile Include="Migrations\202404100855513_AddedMinutesForEachPatient.designer.cs">
-      <DependentUpon>202404100855513_AddedMinutesForEachPatient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202405201526095_AddedStartAndEndDateToAppointment.cs" />
-    <Compile Include="Migrations\202405201526095_AddedStartAndEndDateToAppointment.designer.cs">
-      <DependentUpon>202405201526095_AddedStartAndEndDateToAppointment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202405221309540_OfficeTableAdded.cs" />
-    <Compile Include="Migrations\202405221309540_OfficeTableAdded.designer.cs">
-      <DependentUpon>202405221309540_OfficeTableAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202405241536188_DoctorOfficeAvailabilityTableAdded.cs" />
-    <Compile Include="Migrations\202405241536188_DoctorOfficeAvailabilityTableAdded.designer.cs">
-      <DependentUpon>202405241536188_DoctorOfficeAvailabilityTableAdded.cs</DependentUpon>
+    <Compile Include="Migrations\202406031310351_WeekDayEnumAdded.cs" />
+    <Compile Include="Migrations\202406031310351_WeekDayEnumAdded.designer.cs">
+      <DependentUpon>202406031310351_WeekDayEnumAdded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -402,32 +376,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202403270931215_InitialCreate.resx">
-      <DependentUpon>202403270931215_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202406021141290_InitialCreate.resx">
+      <DependentUpon>202406021141290_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403271044191_AddedPatientAndAppointment.resx">
-      <DependentUpon>202403271044191_AddedPatientAndAppointment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403271152365_DateAndTimeSetAsSeparatePropertiesInAppointment.resx">
-      <DependentUpon>202403271152365_DateAndTimeSetAsSeparatePropertiesInAppointment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403271215542_PatientIdInAppointmentMadeNullable.resx">
-      <DependentUpon>202403271215542_PatientIdInAppointmentMadeNullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403291328440_SpecializationAdded.resx">
-      <DependentUpon>202403291328440_SpecializationAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202404100855513_AddedMinutesForEachPatient.resx">
-      <DependentUpon>202404100855513_AddedMinutesForEachPatient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202405201526095_AddedStartAndEndDateToAppointment.resx">
-      <DependentUpon>202405201526095_AddedStartAndEndDateToAppointment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202405221309540_OfficeTableAdded.resx">
-      <DependentUpon>202405221309540_OfficeTableAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202405241536188_DoctorOfficeAvailabilityTableAdded.resx">
-      <DependentUpon>202405241536188_DoctorOfficeAvailabilityTableAdded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202406031310351_WeekDayEnumAdded.resx">
+      <DependentUpon>202406031310351_WeekDayEnumAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

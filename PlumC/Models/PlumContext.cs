@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
@@ -18,5 +19,10 @@ namespace PlumC.Models
         public IDbSet<Specialization> Specializations { get; set; }
         public IDbSet<Office> Offices { get; set; }
         public IDbSet<DoctorOfficeAvailability> DoctorOfficeAvailabilities { get; set;}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+
+        }
     }
 }
