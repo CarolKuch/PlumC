@@ -254,6 +254,10 @@
     <Compile Include="Migrations\202406031310351_WeekDayEnumAdded.designer.cs">
       <DependentUpon>202406031310351_WeekDayEnumAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202406041451140_DateAddedToDoctorOfficeAvailability.cs" />
+    <Compile Include="Migrations\202406041451140_DateAddedToDoctorOfficeAvailability.designer.cs">
+      <DependentUpon>202406041451140_DateAddedToDoctorOfficeAvailability.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\DoctorOfficeAvailability.cs" />
@@ -381,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202406031310351_WeekDayEnumAdded.resx">
       <DependentUpon>202406031310351_WeekDayEnumAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406041451140_DateAddedToDoctorOfficeAvailability.resx">
+      <DependentUpon>202406041451140_DateAddedToDoctorOfficeAvailability.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

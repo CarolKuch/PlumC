@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -13,8 +14,13 @@ namespace PlumC.Models
         public int DoctorId { get; set; }
         public Doctor Doctor { get; set; }
         public DayOfWeek DayOfWeek { get; set; }
-        public DateTime TimeStart { get;set; }
-        public DateTime TimeEnd { get;set; }
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime TimeStart { get; set; }
+        [DataType(DataType.Time)]
+        public DateTime TimeEnd { get; set; }
         public bool IsDoctorAvailable { get; set; }
     }
 }
