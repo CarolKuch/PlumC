@@ -41,7 +41,7 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10" onclick="dayWasChosen()">
+        <div class="col-md-10" onchange="dateWasChosen()">
             @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control ", @type = "date", id="date" } })
             @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
         </div>
@@ -109,6 +109,12 @@
                 chosenDate.setDate(chosenDate.getDate() + dayOffset);
             
             document.getElementById('date').value = chosenDate.toJSON().slice(0, 10);
+        }
+
+        function dateWasChosen() {
+            var chosenDateValue = document.getElementById('date').value;
+            var chosenDay = (new Date(chosenDateValue)).getDay();
+            document.getElementById('DayOfWeek').value = chosenDay;
         }
     </script>
 }
